@@ -46,6 +46,13 @@ All scripts are located inside the [`AppScript`](./AppScript) folder:
 
 ---
 
+## 🎬 Watch It in Action
+
+[![Watch on YouTube](https://img.youtube.com/vi/tZn7T-6gJ6k/hqdefault.jpg)](https://www.youtube.com/shorts/tZn7T-6gJ6k)  
+▶️ [Click here to watch the YouTube Short](https://www.youtube.com/shorts/tZn7T-6gJ6k)
+
+---
+
 **Made with love by Adam Natad**  
 🌐 [natadtech.com](https://natadtech.com)  
 📧 `adam@natadtech.com`
