@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <style>
+      body {
+        font-family: "Google Sans", Arial, sans-serif;
+        padding: 16px 20px;
+        color: #202124;
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 16px;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .header a {
+        color: #1a73e8;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .header a:hover {
+        text-decoration: underline;
+      }
+
+      h3 {
+        font-size: 20px;
+        text-align: center;
+        margin-bottom: 6px;
+      }
+
+      label {
+        display: block;
+        margin-top: 10px;
+        font-weight: 500;
+      }
+
+      input, select {
+        width: 100%;
+        padding: 8px;
+        margin-top: 4px;
+        box-sizing: border-box;
+        border: 1px solid #dadce0;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+
+      button {
+        margin-top: 20px;
+        background-color: #1a73e8;
+        color: white;
+        font-weight: bold;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        width: 100%;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #1669c1;
+      }
+
+      .footer {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 14px;
+        color: #5f6368;
+      }
+
+      .footer strong {
+        color: #d93025;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <a href="https://natadtech.com" target="_blank">Made with Love by Adam Natad</a><br>
+      <a href="https://www.amazon.com/author/adam-natad" target="_blank">Support me by buying my books at Amazon</a>
+    </div>
+
+    <label>Trim Size (Presets - Paperback & Hardcover):
+      <select id="preset" onchange="applyPreset()">
+        <option value="">-- Select Preset --</option>
+        <option value="5x8">5 x 8 in</option>
+        <option value="5.25x8">5.25 x 8 in</option>
+        <option value="5.5x8.5">5.5 x 8.5 in</option>
+        <option value="6x9">6 x 9 in</option>
+        <option value="5.06x7.81">5.06 x 7.81 in</option>
+        <option value="6.14x9.21">6.14 x 9.21 in</option>
+        <option value="6.69x9.61">6.69 x 9.61 in</option>
+        <option value="7x10">7 x 10 in</option>
+        <option value="7.44x9.69">7.44 x 9.69 in</option>
+        <option value="7.5x9.25">7.5 x 9.25 in</option>
+        <option value="8x10">8 x 10 in</option>
+        <option value="8.27x11.69">8.27 x 11.69 in</option>
+        <option value="8.25x6">8.25 x 6 in</option>
+        <option value="8.25x8.25">8.25 x 8.25 in</option>
+        <option value="8.25x11">8.25 x 11 in</option>
+        <option value="8.5x8.5">8.5 x 8.5 in</option>
+        <option value="8.5x11">8.5 x 11 in</option>
+        <option value="custom">Custom</option>
+      </select>
+    </label>
+
+    <label>Width: <input type="number" step="0.01" id="width" required></label>
+    <label>Height: <input type="number" step="0.01" id="height" required></label>
+
+    <label>Unit:
+      <select id="unit">
+        <option value="in">Inches</option>
+        <option value="cm">Centimeters</option>
+      </select>
+    </label>
+
+    <hr>
+
+    <label>Top Margin: <input type="number" step="0.01" id="marginTop" value="1.0" required></label>
+    <label>Bottom Margin: <input type="number" step="0.01" id="marginBottom" value="1.0" required></label>
+    <label>Left Margin: <input type="number" step="0.01" id="marginLeft" value="1.0" required></label>
+    <label>Right Margin: <input type="number" step="0.01" id="marginRight" value="1.0" required></label>
+
+    <button type="button" onclick="submitForm()">Apply Page Settings</button>
+
+    <div class="footer">
+      <p><strong>WARNING:</strong> When setting a custom page size that is not officially supported by Google Docs, the default <i>File → Page Setup</i> may become unusable.<br>
+      To restore access, use this add-on to switch back to a Google-supported paper size.</p>
+    </div>
+
+    <script>
+      const presets = {
+        "5x8": { width: 5.0, height: 8.0 },
+        "5.25x8": { width: 5.25, height: 8.0 },
+        "5.5x8.5": { width: 5.5, height: 8.5 },
+        "6x9": { width: 6.0, height: 9.0 },
+        "5.06x7.81": { width: 5.06, height: 7.81 },
+        "6.14x9.21": { width: 6.14, height: 9.21 },
+        "6.69x9.61": { width: 6.69, height: 9.61 },
+        "7x10": { width: 7.0, height: 10.0 },
+        "7.44x9.69": { width: 7.44, height: 9.69 },
+        "7.5x9.25": { width: 7.5, height: 9.25 },
+        "8x10": { width: 8.0, height: 10.0 },
+        "8.27x11.69": { width: 8.27, height: 11.69 },
+        "8.25x6": { width: 8.25, height: 6.0 },
+        "8.25x8.25": { width: 8.25, height: 8.25 },
+        "8.25x11": { width: 8.25, height: 11.0 },
+        "8.5x8.5": { width: 8.5, height: 8.5 },
+        "8.5x11": { width: 8.5, height: 11.0 }
+      };
+
+      function applyPreset() {
+        const selected = document.getElementById('preset').value;
+        if (presets[selected]) {
+          document.getElementById('width').value = presets[selected].width;
+          document.getElementById('height').value = presets[selected].height;
+          document.getElementById('unit').value = 'in';
+        }
+      }
+
+      function submitForm() {
+        const width = parseFloat(document.getElementById('width').value);
+        const height = parseFloat(document.getElementById('height').value);
+        const unit = document.getElementById('unit').value;
+        const marginTop = parseFloat(document.getElementById('marginTop').value);
+        const marginBottom = parseFloat(document.getElementById('marginBottom').value);
+        const marginLeft = parseFloat(document.getElementById('marginLeft').value);
+        const marginRight = parseFloat(document.getElementById('marginRight').value);
+
+        if (
+          isNaN(width) || isNaN(height) || !unit ||
+          isNaN(marginTop) || isNaN(marginBottom) ||
+          isNaN(marginLeft) || isNaN(marginRight)
+        ) {
+          alert('Please enter valid values in all fields.');
+          return;
+        }
+
+        const data = {
+          width, height, unit,
+          marginTop, marginBottom,
+          marginLeft, marginRight
+        };
+
+        google.script.run
+          .withSuccessHandler(() => {
+            alert('✅ Page size and margins successfully applied!');
+            google.script.host.close();
+          })
+          .setCustomPageSizeAndMargins(data);
+      }
+    </script>
+  </body>
+</html>
