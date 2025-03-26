@@ -1,0 +1,25 @@
+{
+  "timeZone": "Asia/Manila",
+  "dependencies": {},
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8",
+  "oauthScopes": [
+    "https://www.googleapis.com/auth/documents.currentonly",
+    "https://www.googleapis.com/auth/script.container.ui"
+  ],
+  "addOns": {
+    "common": {
+      "name": "Adam Natad – Page Sizer",
+      "logoUrl": "https://natadtech.com/images/NatadTechLogoWhite.png",
+      "useLocaleFromApp": true,
+      "homepageTrigger": {
+        "runFunction": "openSizeDialog"
+      }
+    },
+    "docs": {
+      "homepageTrigger": {
+        "runFunction": "openSizeDialog"
+      }
+    }
+  }
+}
