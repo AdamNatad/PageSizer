@@ -3,10 +3,30 @@
   <head>
     <base target="_top">
     <style>
-      body {
+      html, body {
+        margin: 0;
+        padding: 0px 10px;
         font-family: "Google Sans", Arial, sans-serif;
-        padding: 0px 20px;
         color: #202124;
+        animation: popIn 0.3s ease-out;
+      }
+
+      @keyframes popIn {
+        0% {
+          transform: scale(0.95);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeOut {
+        to {
+          opacity: 0;
+          transform: scale(0.95);
+        }
       }
 
       .header {
@@ -15,6 +35,7 @@
         font-size: 14px;
         line-height: 1.6;
       }
+
       .header a {
         color: #1a73e8;
         text-decoration: none;
@@ -22,7 +43,7 @@
         display: block;
         margin-bottom: 4px;
       }
-      /* Made with ♥️ label */
+
       .made-with-love {
         font-size: 12px;
         font-weight: bold;
@@ -30,32 +51,34 @@
         margin-top: 2px;
         margin-bottom: 20px;
       }
-      /* Support label */
+
       .support-label {
         display: block;
         font-size: 14px;
         font-weight: 600;
         margin-bottom: -18px;
       }
-      /* NT button */
+
       .nt-button {
         margin-top: 16px;
         background-color: #1a73e8;
         border: none;
         color: white;
-        padding: 8px 12px;     /* same as your .support-btn */
-        font-size: 13px;       /* same as your .support-btn */
+        padding: 8px 12px;
+        font-size: 13px;
         border-radius: 4px;
         cursor: pointer;
         transition: background-color 0.2s;
-        width: 100%;           /* full width */
-        display: block;        /* ensures it stacks nicely */
+        width: 100%;
+        display: block;
         text-align: center;
         text-decoration: none;
       }
+
       .nt-button:hover {
         background-color: #1669c1;
       }
+
       .nt-button:active {
         background-color: #0f5bb5;
       }
@@ -122,25 +145,28 @@
         color: #5f6368;
         line-height: 1.4;
       }
+
       #notebottom strong {
         font-size: 13px;
         margin-bottom: 6px;
         color: #d93025;
       }
+
       #notebottom ul {
         padding-left: 20px;
         margin: 0;
       }
+
       #notebottom li {
         margin-bottom: 6px;
       }
     </style>
   </head>
-  <body>
+  <body id="mainBody">
     <div class="header">
       <label class="support-label">Support Adam Natad</label>
       <button class="nt-button" onclick="window.open('https://www.amazon.com/author/adam-natad','_blank')">
-        Check out his books
+        📜 Books By Adam Natad
       </button>
       <div class="made-with-love">Made with ♥️</div>
     </div>
@@ -148,6 +174,7 @@
     <label>Trim Size (Presets - Paperback & Hardcover):
       <select id="preset" onchange="applyPreset()">
         <option value="">-- Select Preset --</option>
+        <option value="8.5x11">Google Default</option>
         <option value="5x8">5 x 8 in</option>
         <option value="5.25x8">5.25 x 8 in</option>
         <option value="5.5x8.5">5.5 x 8.5 in</option>
@@ -247,12 +274,14 @@
           marginLeft, marginRight
         };
 
-        google.script.run
-          .withSuccessHandler(() => {
-            alert('✅ Page size and margins successfully applied!');
-            google.script.host.close();
-          })
-          .setCustomPageSizeAndMargins(data);
+        const body = document.getElementById('mainBody');
+        body.style.animation = "fadeOut 0.3s ease-in forwards";
+
+        setTimeout(() => {
+          google.script.run.showSuccessDialog();
+        }, 300);
+
+        google.script.run.setCustomPageSizeAndMargins(data);
       }
     </script>
   </body>
