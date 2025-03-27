@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        font-family: "Google Sans", Arial, sans-serif;
+        background-color: #fff;
+        color: #202124;
+        text-align: center;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        animation: popIn 0.4s ease-out;
+      }
+
+      .icon {
+        font-size: 40px;
+        color: #34a853;
+        margin-bottom: 10px;
+        animation: popIcon 0.4s ease-out;
+      }
+
+      h2 {
+        font-size: 18px;
+        margin: 0;
+        opacity: 0;
+        animation: fadeIn 0.6s ease forwards;
+        animation-delay: 0.3s;
+      }
+
+      p {
+        font-size: 14px;
+        color: #5f6368;
+        margin: 6px 0 0;
+        opacity: 0;
+        animation: fadeIn 0.6s ease forwards;
+        animation-delay: 0.4s;
+      }
+
+      @keyframes popIn {
+        0% {
+          transform: scale(0.8);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      @keyframes popIcon {
+        0% {
+          transform: scale(0);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes popOut {
+        to {
+          transform: scale(0.8);
+          opacity: 0;
+        }
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        // Play success sound
+        const audio = document.getElementById('success-sound');
+        if (audio) audio.play();
+
+        // Auto-close after animation
+        setTimeout(() => {
+          document.body.style.animation = "popOut 0.3s ease-in forwards";
+          setTimeout(() => {
+            google.script.host.close();
+          }, 300);
+        }, 3000);
+      };
+    </script>
+  </head>
+  <body>
+    <audio id="success-sound" preload="auto">
+      <source src="https://cdn.pixabay.com/download/audio/2021/08/04/audio_0625c1539c.mp3?filename=success-1-6297.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="icon">✅</div>
+    <h2>Page Applied</h2>
+    <p>Settings successfully saved.</p>
+  </body>
+</html>
