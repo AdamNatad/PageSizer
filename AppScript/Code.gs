@@ -1,6 +1,8 @@
 function onOpen() {
   DocumentApp.getUi().createMenu("Adam Natad - Custom Page Sizer")
     .addItem('Start', 'openSizeDialog')
+    .addSeparator()
+    .addItem('Help', 'showHelpDialog')
     .addToUi();
 }
 
@@ -13,6 +15,20 @@ function openSizeDialog() {
     .setWidth(450)
     .setHeight(600);
   DocumentApp.getUi().showModalDialog(html, "Adam Natad - Custom Page Sizer");
+}
+
+function showSuccessDialog() {
+  const html = HtmlService.createHtmlOutputFromFile('SuccessDialog')
+    .setWidth(300)
+    .setHeight(170);
+  DocumentApp.getUi().showModalDialog(html, 'Page Applied');
+}
+
+function showHelpDialog() {
+  const html = HtmlService.createHtmlOutputFromFile('HelpDialog')
+    .setWidth(560)
+    .setHeight(200);
+  DocumentApp.getUi().showModalDialog(html, 'Help for Adam Natad - Custom Page Sizer');
 }
 
 function setCustomPageSizeAndMargins(data) {
