@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        font-family: "Google Sans", Arial, sans-serif;
+        background: #fff;
+        color: #202124;
+        box-sizing: border-box;
+        animation: fadeIn 0.3s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.96); }
+        to { opacity: 1; transform: scale(1); }
+      }
+
+      @keyframes fadeOut {
+        to { opacity: 0; transform: scale(0.96); }
+      }
+
+      .container {
+        padding: 24px;
+        box-sizing: border-box;
+      }
+
+      .dialog-title {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+
+      .card-box {
+        border: 1px solid #dadce0;
+        border-radius: 4px;
+        padding: 16px;
+        margin-bottom: 20px;
+      }
+
+      .section-title {
+        font-weight: 600;
+        font-size: 14px;
+        margin-bottom: 6px;
+      }
+
+      .section-desc {
+        font-size: 14px;
+        color: #5f6368;
+        line-height: 1.6;
+      }
+
+      .section-desc strong {
+        color: #202124;
+        font-weight: 600;
+      }
+
+      .button-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 16px;
+      }
+
+      .button-left,
+      .button-right {
+        display: flex;
+        gap: 24px;
+      }
+
+      .material-button {
+        font-size: 13px;
+        font-weight: 600;
+        color: #1a73e8;
+        text-decoration: none;
+        padding: 6px 12px;
+        border-radius: 20px;
+        transition: background-color 0.2s;
+        white-space: nowrap;
+      }
+
+      .material-button:hover {
+        background-color: rgba(26, 115, 232, 0.1);
+        text-decoration: none;
+      }
+    </style>
+    <script>
+      function closeDialog() {
+        document.body.style.animation = "fadeOut 0.25s ease-in forwards";
+        setTimeout(() => {
+          google.script.host.close();
+        }, 250);
+      }
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeDialog();
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card-box">
+        <div class="section-title">Getting started</div>
+        <div class="section-desc">
+          Open the Custom Page Sizer by going to:<br>
+          <strong>Extensions → Adam Natad – Custom Page Sizer → Start</strong>
+        </div>
+      </div>
+
+      <div class="button-row">
+        <div class="button-left">
+          <a class="material-button" href="https://www.natadtech.com" target="_blank">Learn more</a>
+        </div>
+        <div class="button-right">
+          <a class="material-button" href="https://github.com/AdamNatad/PageSizer" target="_blank">View source code</a>
+          <a class="material-button" href="https://github.com/AdamNatad/PageSizer/issues" target="_blank">Report an issue</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
