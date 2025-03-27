@@ -5,25 +5,59 @@
     <style>
       body {
         font-family: "Google Sans", Arial, sans-serif;
-        padding: 16px 20px;
+        padding: 0px 20px;
         color: #202124;
       }
 
       .header {
-        text-align: center;
+        text-align: left;
         margin-bottom: 16px;
         font-size: 14px;
         line-height: 1.6;
       }
-
       .header a {
         color: #1a73e8;
         text-decoration: none;
-        font-weight: 500;
+        font-weight: 800;
+        display: block;
+        margin-bottom: 4px;
       }
-
-      .header a:hover {
-        text-decoration: underline;
+      /* Made with ♥️ label */
+      .made-with-love {
+        font-size: 12px;
+        font-weight: bold;
+        color: #5f6368;
+        margin-top: 2px;
+        margin-bottom: 20px;
+      }
+      /* Support label */
+      .support-label {
+        display: block;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: -18px;
+      }
+      /* NT button */
+      .nt-button {
+        margin-top: 16px;
+        background-color: #1a73e8;
+        border: none;
+        color: white;
+        padding: 8px 12px;     /* same as your .support-btn */
+        font-size: 13px;       /* same as your .support-btn */
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        width: 100%;           /* full width */
+        display: block;        /* ensures it stacks nicely */
+        text-align: center;
+        text-decoration: none;
+      }
+      .nt-button:hover {
+        background-color: #1669c1;
+      }
+      .nt-button:active {
+        background-color: #0f5bb5;
       }
 
       h3 {
@@ -81,12 +115,34 @@
       .footer strong {
         color: #d93025;
       }
+
+      #notebottom {
+        margin-top: 20px;
+        font-size: 12px;
+        color: #5f6368;
+        line-height: 1.4;
+      }
+      #notebottom strong {
+        font-size: 13px;
+        margin-bottom: 6px;
+        color: #d93025;
+      }
+      #notebottom ul {
+        padding-left: 20px;
+        margin: 0;
+      }
+      #notebottom li {
+        margin-bottom: 6px;
+      }
     </style>
   </head>
   <body>
     <div class="header">
-      <a href="https://natadtech.com" target="_blank">Made with Love by Adam Natad</a><br>
-      <a href="https://www.amazon.com/author/adam-natad" target="_blank">Support me by buying my books at Amazon</a>
+      <label class="support-label">Support Adam Natad</label>
+      <button class="nt-button" onclick="window.open('https://www.amazon.com/author/adam-natad','_blank')">
+        Check out his books
+      </button>
+      <div class="made-with-love">Made with ♥️</div>
     </div>
 
     <label>Trim Size (Presets - Paperback & Hardcover):
@@ -132,8 +188,8 @@
 
     <button type="button" onclick="submitForm()">Apply Page Settings</button>
 
-    <div class="footer">
-      <p><strong>WARNING:</strong> When setting a custom page size that is not officially supported by Google Docs, the default <i>File → Page Setup</i> may become unusable.<br>
+    <div id="notebottom">
+      <p><strong>WARNING:</strong> setting a custom page size that is not officially supported by Google Docs, the default <i>File → Page Setup</i> may become unusable.
       To restore access, use this add-on to switch back to a Google-supported paper size.</p>
     </div>
 
