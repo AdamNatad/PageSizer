@@ -10,7 +10,7 @@ A lightweight Apps Script tool that adds a custom menu inside Google Docs, allow
 
 Explore and install this tool directly from the Google Workspace Marketplace for a seamless experience.
 
-### 👉 [Install The Add-on from The Google Workspace Marketplace](https://natadtech.com/pagesizer)
+### 👉 [Install The Add-On from The Google Workspace Marketplace](https://natadtech.com/pagesizer)
 
 ---
 
