@@ -1,0 +1,9 @@
+# Exclude the Previews folder from export archives
+Previews/ export-ignore
+
+# Exclude Git-specific configuration files from export archives
+.gitignore export-ignore
+.gitattributes export-ignore
+
+# Exclude GitHub-specific files (like workflows, issue templates, etc.)
+.github/ export-ignore
