@@ -26,8 +26,8 @@ function showSuccessDialog() {
 
 function showHelpDialog() {
   const html = HtmlService.createHtmlOutputFromFile('HelpDialog')
-    .setWidth(560)
-    .setHeight(200);
+    .setWidth(600)
+    .setHeight(530);
   DocumentApp.getUi().showModalDialog(html, 'Help for Adam Natad - Custom Page Sizer');
 }
 
