@@ -1,6 +1,6 @@
-# Adam Natad - Custom Page Sizer
+# Page Sizer by Adam Natad
 
-**Google Docs – Custom Page Sizer**
+**Custom Page Sizer for Google Docs**
   
 A lightweight Apps Script tool that adds a custom menu inside Google Docs, allowing you to set your own page width, height, and margins beyond the default limitations.
 
@@ -17,7 +17,7 @@ Explore and install this tool directly from the Google Workspace Marketplace for
 ## ✨ Features
 
 - Set custom page size and margins  
-- Adds a custom menu: **`Adam Natad – Custom Page Sizer`**  
+- Adds a custom menu: **`Page Sizer by Adam Natad`**  
 - Displays an animated success popup after applying changes  
 - Provides a help dialog for first-time users  
 
@@ -71,7 +71,7 @@ Below are screenshots demonstrating various aspects of the tool. Each image is s
 
 ### Preview 1: Custom Menu  
 ![Custom Menu](./Previews/PageSizer-Preview1.jpg)  
-*The custom menu "Adam Natad – Custom Page Sizer" appears at the top of your Google Doc.*
+*The custom menu "Page Sizer by Adam Natad" appears at the top of your Google Doc.*
 
 ### Preview 2: Page Size Dialog - Start Dialog  
 ![Page Size Dialog - Start Dialog](./Previews/PageSizer-Preview2.jpg)  
