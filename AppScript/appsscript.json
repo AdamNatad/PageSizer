@@ -9,7 +9,7 @@
   ],
   "addOns": {
     "common": {
-      "name": "Adam Natad – Custom Page Sizer",
+      "name": "Page Sizer by Adam Natad",
       "logoUrl": "https://natadtech.com/images/projects/NTPageSizer-min.png",
       "useLocaleFromApp": true,
       "homepageTrigger": {
