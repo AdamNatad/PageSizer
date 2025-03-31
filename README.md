@@ -1,5 +1,9 @@
 # Page Sizer by Adam Natad
 
+<a href="https://workspace.google.com/marketplace/app/adam_natad_custom_page_sizer/207001493947" target="_blank">
+  <img src="./Previews/AppBanner.png" alt="Page Sizer Banner" width="50%" />
+</a>
+
 **Custom Page Sizer for Google Docs**
   
 A lightweight Apps Script tool that adds a custom menu inside Google Docs, allowing you to set your own page width, height, and margins beyond the default limitations.
@@ -70,27 +74,50 @@ All scripts are located inside the [`AppScript`](./AppScript) folder:
 Below are screenshots demonstrating various aspects of the tool. Each image is stored in the [`Previews`](./Previews) folder.
 
 ### Preview 1: Custom Menu  
-![Custom Menu](./Previews/PageSizer-Preview1.jpg)  
+<a href="./Previews/PageSizer-Preview1.jpg" target="_blank">
+  <img src="./Previews/PageSizer-Preview1.jpg" alt="Custom Menu" width="50%" />
+</a>
+
 *The custom menu "Page Sizer by Adam Natad" appears at the top of your Google Doc.*
 
+
 ### Preview 2: Page Size Dialog - Start Dialog  
-![Page Size Dialog - Start Dialog](./Previews/PageSizer-Preview2.jpg)  
+<a href="./Previews/PageSizer-Preview2.jpg" target="_blank">
+  <img src="./Previews/PageSizer-Preview2.jpg" alt="Page Size Dialog - Start Dialog" width="50%" />
+</a>
+
 *The main view of the page size dialog, where you can enter your custom dimensions and margins.*
 
+
 ### Preview 3: Select Preset Menu  
-![Select Preset Menu](./Previews/PageSizer-Preview3.jpg)  
+<a href="./Previews/PageSizer-Preview3.jpg" target="_blank">
+  <img src="./Previews/PageSizer-Preview3.jpg" alt="Select Preset Menu" width="50%" />
+</a>
+
 *An option to select a preset configuration for quick page setup.*
 
+
 ### Preview 4: Page Size Dialog - Start Dialog - Apply Page Settings  
-![Page Size Dialog - Start Dialog - Apply Page Settings](./Previews/PageSizer-Preview4.jpg)  
+<a href="./Previews/PageSizer-Preview4.jpg" target="_blank">
+  <img src="./Previews/PageSizer-Preview4.jpg" alt="Apply Page Settings" width="50%" />
+</a>
+
 *The bottom section of the page size dialog displaying the Apply Page Settings button.*
 
+
 ### Preview 5: Success Popup  
-![Success Popup](./Previews/PageSizer-Preview5.jpg)  
+<a href="./Previews/PageSizer-Preview5.jpg" target="_blank">
+  <img src="./Previews/PageSizer-Preview5.jpg" alt="Success Popup" width="50%" />
+</a>
+
 *An animated popup confirms your changes after applying the new page size.*
 
+
 ### Preview 6: Guide Dialog  
-![Help Dialog](./Previews/PageSizer-Preview6.jpg)  
+<a href="./Previews/PageSizer-Preview6.jpg" target="_blank">
+  <img src="./Previews/PageSizer-Preview6.jpg" alt="Guide Dialog" width="50%" />
+</a>
+
 *A guide dialog provides guidance for first-time users on how to use the tool.*
 
 ---
