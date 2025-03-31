@@ -18,14 +18,12 @@
         align-items: center;
         animation: popIn 0.4s ease-out;
       }
-
       .icon {
         font-size: 40px;
         color: #34a853;
         margin-bottom: 10px;
         animation: popIcon 0.4s ease-out;
       }
-
       h2 {
         font-size: 18px;
         margin: 0;
@@ -33,7 +31,6 @@
         animation: fadeIn 0.6s ease forwards;
         animation-delay: 0.3s;
       }
-
       p {
         font-size: 14px;
         color: #5f6368;
@@ -42,7 +39,6 @@
         animation: fadeIn 0.6s ease forwards;
         animation-delay: 0.4s;
       }
-
       @keyframes popIn {
         0% {
           transform: scale(0.8);
@@ -53,7 +49,6 @@
           opacity: 1;
         }
       }
-
       @keyframes popIcon {
         0% {
           transform: scale(0);
@@ -64,13 +59,11 @@
           opacity: 1;
         }
       }
-
       @keyframes fadeIn {
         to {
           opacity: 1;
         }
       }
-
       @keyframes popOut {
         to {
           transform: scale(0.8);
@@ -80,11 +73,8 @@
     </style>
     <script>
       window.onload = function () {
-        // Play success sound
         const audio = document.getElementById('success-sound');
         if (audio) audio.play();
-
-        // Auto-close after animation
         setTimeout(() => {
           document.body.style.animation = "popOut 0.3s ease-in forwards";
           setTimeout(() => {
