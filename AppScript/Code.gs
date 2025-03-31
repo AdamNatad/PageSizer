@@ -1,5 +1,5 @@
 function onOpen() {
-  DocumentApp.getUi().createMenu("Adam Natad - Custom Page Sizer")
+  DocumentApp.getUi().createMenu("Page Sizer by Adam Natad")
     .addItem('Start', 'openSizeDialog')
     .addItem('Guide', 'showGuideDialog')
     .addToUi();
@@ -13,7 +13,7 @@ function openSizeDialog() {
   const html = HtmlService.createHtmlOutputFromFile('PageSizeDialog')
     .setWidth(450)
     .setHeight(600);
-  DocumentApp.getUi().showModalDialog(html, "Adam Natad - Custom Page Sizer");
+  DocumentApp.getUi().showModalDialog(html, "Page Sizer by Adam Natad");
 }
 
 function showSuccessDialog() {
@@ -27,7 +27,7 @@ function showGuideDialog() {
   const html = HtmlService.createHtmlOutputFromFile('GuideDialog')
     .setWidth(600)
     .setHeight(530);
-  DocumentApp.getUi().showModalDialog(html, 'Guide for Adam Natad - Custom Page Sizer');
+  DocumentApp.getUi().showModalDialog(html, 'Guide for Page Sizer by Adam Natad');
 }
 
 function setCustomPageSizeAndMargins(data) {
