@@ -3,14 +3,53 @@
   <head>
     <base target="_top">
     <style>
+      body.noscroll {
+        overflow: hidden;
+      }
+      .initial-spinner-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+      }
+      .spinner {
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #1a73e8;
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        animation: spin 1s linear infinite;
+      }
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      .confirm-spinner-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(255, 255, 255, 0.85);
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        padding-bottom: 480px;
+        z-index: 9999;
+      }
       html, body {
         margin: 0;
         padding: 0px 10px;
         font-family: "Google Sans", Arial, sans-serif;
         color: #202124;
-        animation: popIn 0.3s ease-out;
+        //animation: popIn 0.3s ease-out;
       }
-
       @keyframes popIn {
         0% {
           transform: scale(0.95);
@@ -21,21 +60,18 @@
           opacity: 1;
         }
       }
-
       @keyframes fadeOut {
         to {
           opacity: 0;
           transform: scale(0.95);
         }
       }
-
       .header {
         text-align: left;
         margin-bottom: 16px;
         font-size: 14px;
         line-height: 1.6;
       }
-
       .header a {
         color: #1a73e8;
         text-decoration: none;
@@ -43,7 +79,6 @@
         display: block;
         margin-bottom: 4px;
       }
-
       .made-with-love {
         font-size: 12px;
         font-weight: bold;
@@ -51,14 +86,12 @@
         margin-top: 2px;
         margin-bottom: 20px;
       }
-
       .support-label {
         display: block;
         font-size: 14px;
         font-weight: 600;
         margin-bottom: -18px;
       }
-
       .nt-button {
         margin-top: 16px;
         background-color: #1a73e8;
@@ -74,27 +107,22 @@
         text-align: center;
         text-decoration: none;
       }
-
       .nt-button:hover {
         background-color: #1669c1;
       }
-
       .nt-button:active {
         background-color: #0f5bb5;
       }
-
       h3 {
         font-size: 20px;
         text-align: center;
         margin-bottom: 6px;
       }
-
       label {
         display: block;
         margin-top: 10px;
         font-weight: 500;
       }
-
       input, select {
         width: 100%;
         padding: 8px;
@@ -105,13 +133,11 @@
         font-size: 14px;
         transition: border 0.2s ease, box-shadow 0.2s ease;
       }
-
       input:focus, select:focus {
         outline: none;
         border: 2px solid #1a73e8;
         box-shadow: 0 0 0 1px #1a73e8;
       }
-
       button {
         margin-top: 20px;
         background-color: #1a73e8;
@@ -123,46 +149,54 @@
         width: 100%;
         cursor: pointer;
       }
-
       button:hover {
         background-color: #1669c1;
       }
-
       .footer {
         text-align: center;
         margin-top: 20px;
         font-size: 14px;
         color: #5f6368;
       }
-
       .footer strong {
         color: #d93025;
       }
-
       #notebottom {
         margin-top: 20px;
         font-size: 12px;
         color: #5f6368;
         line-height: 1.4;
       }
-
       #notebottom strong {
         font-size: 13px;
         margin-bottom: 6px;
         color: #d93025;
       }
-
       #notebottom ul {
         padding-left: 20px;
         margin: 0;
       }
-
       #notebottom li {
         margin-bottom: 6px;
       }
     </style>
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+        const spinner = document.getElementById('initial-spinner');
+        const body = document.body;
+    
+        setTimeout(() => {
+          spinner.style.display = 'none';
+          body.style.animation = "popIn 0.3s ease-out";
+        }, 200);
+      });
+    </script>
   </head>
   <body id="mainBody">
+    <div id="initial-spinner" class="initial-spinner-overlay">
+      <div class="spinner"></div>
+    </div>
+
     <div class="header">
       <label class="support-label">Support Adam Natad</label>
       <button class="nt-button" onclick="window.open('https://www.amazon.com/author/adam-natad','_blank')">
@@ -174,6 +208,7 @@
     <label>Trim Size (Presets - Paperback & Hardcover):
       <select id="preset" onchange="applyPreset()">
         <option value="">-- Select Preset --</option>
+        <option value="custom">Custom Size</option>
         <option value="8.5x11">Google Default</option>
         <option value="5x8">5 x 8 in</option>
         <option value="5.25x8">5.25 x 8 in</option>
@@ -192,7 +227,6 @@
         <option value="8.25x11">8.25 x 11 in</option>
         <option value="8.5x8.5">8.5 x 8.5 in</option>
         <option value="8.5x11">8.5 x 11 in</option>
-        <option value="custom">Custom</option>
       </select>
     </label>
 
@@ -221,6 +255,9 @@
       To restore access, use this add-on to switch back to a Google-supported paper size.</p>
     </div>
     
+    <div id="confirm-spinner" class="confirm-spinner-overlay" style="display: none;">
+      <div class="spinner"></div>
+    </div>
 
     <script>
       const presets = {
@@ -242,7 +279,7 @@
         "8.5x8.5": { width: 8.5, height: 8.5 },
         "8.5x11": { width: 8.5, height: 11.0 }
       };
-
+      
       function applyPreset() {
         const selected = document.getElementById('preset').value;
         if (presets[selected]) {
@@ -276,14 +313,25 @@
           marginLeft, marginRight
         };
 
-        const body = document.getElementById('mainBody');
-        body.style.animation = "fadeOut 0.3s ease-in forwards";
+        const mainBody = document.getElementById('mainBody');
+        const confirmSpinner = document.getElementById('confirm-spinner');
 
-        setTimeout(() => {
-          google.script.run.showSuccessDialog();
-        }, 300);
+        mainBody.style.animation = "fadeOut 0.3s ease-in forwards";
 
-        google.script.run.setCustomPageSizeAndMargins(data);
+        requestAnimationFrame(() => {
+          confirmSpinner.style.display = 'flex';
+          document.body.classList.add('noscroll');
+
+          google.script.run
+            .withSuccessHandler(() => {
+              setTimeout(() => {
+                confirmSpinner.style.display = 'none';
+                google.script.run.showSuccessDialog();
+                google.script.host.close();
+              }, 300);
+            })
+            .setCustomPageSizeAndMargins(data);
+        });
       }
     </script>
   </body>
