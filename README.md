@@ -43,7 +43,12 @@ All scripts are located inside the [`AppScript`](./AppScript) folder:
    - Create a **Script file** named `Code.gs` and paste the contents from [`AppScript/Code.gs`](./AppScript/Code.gs)
    - Create an **HTML file** named `PageSizeDialog.html` and paste contents from [`AppScript/PageSizeDialog.html`](./AppScript/PageSizeDialog.html)
    - Create an **HTML file** named `SuccessDialog.html` and paste contents from [`AppScript/SuccessDialog.html`](./AppScript/SuccessDialog.html)
-   - Create an **HTML file** named `HelpDialog.html` and paste contents from [`AppScript/HelpDialog.html`](./AppScript/HelpDialog.html)
+   - Create an **HTML file** named `GuideDialog.html` and paste contents from [`AppScript/GuideDialog.html`](./AppScript/GuideDialog.html)
+   - Enable viewing of the manifest file:
+     - Click the **gear icon ⚙️ (Project Settings)** in the left sidebar
+     - Check **"Show 'appsscript.json' manifest file in editor"**
+   - Open the newly visible `appsscript.json` file
+   - Replace its contents with the JSON from [`AppScript/appsscript.json`](./AppScript/appsscript.json)
 5. **Save** the project.
 6. **Authorize the App:**
    - When you run the script for the first time (by selecting the custom menu), you will be prompted to grant authorization.
@@ -84,9 +89,9 @@ Below are screenshots demonstrating various aspects of the tool. Each image is s
 ![Success Popup](./Previews/PageSizer-Preview5.jpg)  
 *An animated popup confirms your changes after applying the new page size.*
 
-### Preview 6: Help Dialog  
+### Preview 6: Guide Dialog  
 ![Help Dialog](./Previews/PageSizer-Preview6.jpg)  
-*A help dialog provides guidance for first-time users on how to use the tool.*
+*A guide dialog provides guidance for first-time users on how to use the tool.*
 
 ---
 
