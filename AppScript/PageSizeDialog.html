@@ -84,7 +84,7 @@
         font-weight: bold;
         color: #5f6368;
         margin-top: 2px;
-        margin-bottom: 20px;
+        margin-bottom: 0px;
       }
       .support-label {
         display: block;
@@ -112,6 +112,28 @@
       }
       .nt-button:active {
         background-color: #0f5bb5;
+      }
+      .nt-button-donate {
+        margin-top: 0px;
+        margin-bottom: 10px;
+        background-color: #d93025;
+        border: none;
+        color: white;
+        padding: 8px 12px;
+        font-size: 13px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        width: 100%;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+      }
+      .nt-button-donate:hover {
+        background-color: #c5221f;
+      }
+      .nt-button-donate:active {
+        background-color: #a50e0e;
       }
       h3 {
         font-size: 20px;
@@ -203,6 +225,9 @@
         📜 Books By Adam Natad
       </button>
       <div class="made-with-love">Made with ♥️</div>
+      <button class="nt-button-donate" onclick="window.open('https://ko-fi.com/adamnatad', '_blank')">
+        ☕ Buy Adam a Coffee
+      </button>
     </div>
 
     <label>Trim Size (Presets - Paperback & Hardcover):
