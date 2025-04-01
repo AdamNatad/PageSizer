@@ -39,8 +39,9 @@
         background-color: rgba(255, 255, 255, 0.85);
         display: flex;
         justify-content: center;
-        align-items: flex-end;
-        padding-bottom: 480px;
+        align-items: center;
+        //align-items: flex-end;
+        //padding-bottom: 480px;
         z-index: 9999;
       }
       html, body {
@@ -201,6 +202,99 @@
       #notebottom li {
         margin-bottom: 6px;
       }
+      .preset-row {
+        display: flex;
+        gap: 12px;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+      .preset-wrapper,
+      .unit-wrapper {
+        flex: 1;
+      }
+      .preset-wrapper label,
+      .unit-wrapper label {
+        display: block;
+        font-weight: 500;
+        margin-bottom: 6px;
+      }
+      .preset-select,
+      .unit-select {
+        width: 100%;
+        padding: 8px 12px;
+        font-size: 14px;
+        color: #202124;
+        background-color: #fff;
+        border: 1px solid #dadce0;
+        border-radius: 4px;
+        outline: none;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        transition: border 0.2s ease, box-shadow 0.2s ease;
+      }
+      .preset-select:focus,
+      .unit-select:focus {
+        border-color: #1a73e8;
+        box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.25);
+      }
+      .dimension-row {
+        display: flex;
+        gap: 12px;
+        justify-content: space-between;
+      }
+      .dimension-row .width-field,
+      .dimension-row .height-field {
+        flex: 1;
+      }
+      .dimension-row label {
+        display: block;
+      }
+      .dimension-row input {
+        width: 100%;
+        padding: 8px;
+        font-size: 14px;
+        border: 1px solid #dadce0;
+        border-radius: 4px;
+        transition: border 0.2s ease, box-shadow 0.2s ease;
+      }
+      .dimension-row input:focus {
+        border: 2px solid #1a73e8;
+        box-shadow: 0 0 0 1px #1a73e8;
+        outline: none;
+      }
+      .grid-2x2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      #width:disabled,
+      #height:disabled,
+      #unit:disabled {
+        background-color: #f1f3f4;
+        color: #5f6368;
+        cursor: not-allowed;
+      }
+      #snackbar {
+        display: none;
+        position: fixed;
+        bottom: 32px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #d93025;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 4px;
+        font-size: 14px;
+        z-index: 9999;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        transition: opacity 0.3s ease;
+        opacity: 0;
+        white-space: nowrap;
+        max-width: 90vw;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
     </style>
     <script>
       window.addEventListener('DOMContentLoaded', () => {
@@ -230,49 +324,72 @@
       </button>
     </div>
 
-    <label>Trim Size (Presets - Paperback & Hardcover):
-      <select id="preset" onchange="applyPreset()">
-        <option value="">-- Select Preset --</option>
-        <option value="custom">Custom Size</option>
-        <option value="8.5x11">Google Default</option>
-        <option value="5x8">5 x 8 in</option>
-        <option value="5.25x8">5.25 x 8 in</option>
-        <option value="5.5x8.5">5.5 x 8.5 in</option>
-        <option value="6x9">6 x 9 in</option>
-        <option value="5.06x7.81">5.06 x 7.81 in</option>
-        <option value="6.14x9.21">6.14 x 9.21 in</option>
-        <option value="6.69x9.61">6.69 x 9.61 in</option>
-        <option value="7x10">7 x 10 in</option>
-        <option value="7.44x9.69">7.44 x 9.69 in</option>
-        <option value="7.5x9.25">7.5 x 9.25 in</option>
-        <option value="8x10">8 x 10 in</option>
-        <option value="8.27x11.69">8.27 x 11.69 in</option>
-        <option value="8.25x6">8.25 x 6 in</option>
-        <option value="8.25x8.25">8.25 x 8.25 in</option>
-        <option value="8.25x11">8.25 x 11 in</option>
-        <option value="8.5x8.5">8.5 x 8.5 in</option>
-        <option value="8.5x11">8.5 x 11 in</option>
-      </select>
-    </label>
+    <div class="preset-row">
+      <div class="preset-wrapper">
+        <label for="preset">Trim Size - Presets:</label>
+        <select id="preset" class="preset-select" onchange="applyPreset()">
+          <option value="">-- Select Preset --</option>
+          <option value="custom">Custom Size</option>
+          <option value="8.5x11">Google Default</option>
+          <option value="5x8">5 x 8 in</option>
+          <option value="5.25x8">5.25 x 8 in</option>
+          <option value="5.5x8.5">5.5 x 8.5 in</option>
+          <option value="6x9">6 x 9 in</option>
+          <option value="5.06x7.81">5.06 x 7.81 in</option>
+          <option value="6.14x9.21">6.14 x 9.21 in</option>
+          <option value="6.69x9.61">6.69 x 9.61 in</option>
+          <option value="7x10">7 x 10 in</option>
+          <option value="7.44x9.69">7.44 x 9.69 in</option>
+          <option value="7.5x9.25">7.5 x 9.25 in</option>
+          <option value="8x10">8 x 10 in</option>
+          <option value="8.27x11.69">8.27 x 11.69 in</option>
+          <option value="8.25x6">8.25 x 6 in</option>
+          <option value="8.25x8.25">8.25 x 8.25 in</option>
+          <option value="8.25x11">8.25 x 11 in</option>
+          <option value="8.5x8.5">8.5 x 8.5 in</option>
+          <option value="8.5x11">8.5 x 11 in</option>
+        </select>
+      </div>
 
-    <label>Width: <input type="number" step="0.01" id="width" required></label>
-    <label>Height: <input type="number" step="0.01" id="height" required></label>
+      <div class="unit-wrapper">
+        <label for="unit">Unit:</label>
+        <select id="unit" class="unit-select">
+          <option value="in">Inches</option>
+          <option value="cm">Centimeters</option>
+        </select>
+      </div>
+    </div>
 
-    <label>Unit:
-      <select id="unit">
-        <option value="in">Inches</option>
-        <option value="cm">Centimeters</option>
-      </select>
-    </label>
-
+    <div class="dimension-row">
+      <label class="width-field">
+        Width:
+        <input type="number" step="0.01" id="width" required>
+      </label>
+      <label class="height-field">
+        Height:
+        <input type="number" step="0.01" id="height" required>
+      </label>
+    </div>
+    
     <hr>
 
-    <label>Top Margin: <input type="number" step="0.01" id="marginTop" value="1.0" required></label>
-    <label>Bottom Margin: <input type="number" step="0.01" id="marginBottom" value="1.0" required></label>
-    <label>Left Margin: <input type="number" step="0.01" id="marginLeft" value="1.0" required></label>
-    <label>Right Margin: <input type="number" step="0.01" id="marginRight" value="1.0" required></label>
+    <div class="grid-2x2">
+      <label>Top Margin:
+        <input type="number" step="0.01" id="marginTop" value="1.0" required>
+      </label>
+      <label>Bottom Margin:
+        <input type="number" step="0.01" id="marginBottom" value="1.0" required>
+      </label>
+      <label>Left Margin:
+        <input type="number" step="0.01" id="marginLeft" value="1.0" required>
+      </label>
+      <label>Right Margin:
+        <input type="number" step="0.01" id="marginRight" value="1.0" required>
+      </label>
+    </div>
 
     <button type="button" onclick="submitForm()">Apply Page Settings</button>
+    <div id="snackbar"></div>
 
     <div id="notebottom">
       <p><strong>EXPORT OR DOWNLOAD NOTE:</strong> Do not export or download directly to PDF from Google Docs as this may cause incorrect page dimensions. Instead, export your document as a <strong>.docx</strong> file by selecting <em>File → Download → Microsoft Word (.docx)</em>. Open the file in MS Word, verify the page size via <em>Layout → Size → More Paper Sizes…</em>, and then convert it to PDF.</p>
@@ -306,12 +423,40 @@
       };
       
       function applyPreset() {
-        const selected = document.getElementById('preset').value;
-        if (presets[selected]) {
-          document.getElementById('width').value = presets[selected].width;
-          document.getElementById('height').value = presets[selected].height;
-          document.getElementById('unit').value = 'in';
+        const preset = document.getElementById('preset').value;
+        const widthInput = document.getElementById('width');
+        const heightInput = document.getElementById('height');
+        const unitSelect = document.getElementById('unit');
+
+        if (presets[preset]) {
+          widthInput.value = presets[preset].width;
+          heightInput.value = presets[preset].height;
+          unitSelect.value = 'in';
+
+          // Disable inputs
+          widthInput.disabled = true;
+          heightInput.disabled = true;
+          unitSelect.disabled = true;
+        } else {
+          // Re-enable inputs for custom/manual sizes
+          widthInput.disabled = false;
+          heightInput.disabled = false;
+          unitSelect.disabled = false;
         }
+      }
+
+      function showSnackbar(message) {
+        const bar = document.getElementById('snackbar');
+        bar.textContent = message;
+        bar.style.display = 'block';
+        bar.style.opacity = '1';
+
+        setTimeout(() => {
+          bar.style.opacity = '0';
+          setTimeout(() => {
+            bar.style.display = 'none';
+          }, 300);
+        }, 3000);
       }
 
       function submitForm() {
@@ -328,7 +473,7 @@
           isNaN(marginTop) || isNaN(marginBottom) ||
           isNaN(marginLeft) || isNaN(marginRight)
         ) {
-          alert('Please enter valid values in all fields.');
+          showSnackbar('⚠️ Please enter valid values in all fields.');
           return;
         }
 
