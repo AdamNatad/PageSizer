@@ -5,9 +5,24 @@
 </a>
 
 **Custom Page Sizer for Google Docs**
+
+Freely set custom page sizes and margins in Google Docs™. Perfect for Amazon KDP Paperback and Hardcover trim sizes. Made for authors who love writing in Google Docs™ like me. — Made with ♥️
   
 A lightweight Apps Script tool that adds a custom menu inside Google Docs, allowing you to set your own page width, height, and margins beyond the default limitations.
 
+Page Sizer by Adam Natad is a simple yet powerful Google Docs™ add-on that allows you to freely set custom page sizes and margins for your documents with ease. Whether you're preparing manuscripts for Amazon KDP Paperback or Hardcover formats, or simply want precise control over your document layout, this tool is built to support your writing needs.
+
+⚙️ Features:
+- Set exact page width and height (in inches or centimeters)
+- Adjust top, bottom, left, and right margins
+- Choose from preset trim sizes or define your own
+- Designed with authors and self-publishers in mind
+
+I created this for myself to streamline my publishing process, and I’m sharing it to help other writers and indie authors who love working in Google Docs™ as much as I do. No complicated setup, just install, customize, and write your story your way.
+
+- Google Chat™ is a trademark of Google LLC
+
+- NatadTech™ is a trademark of NatadTech Solutions OPC
 ---
 
 ## 🌐 Google Workspace Marketplace
