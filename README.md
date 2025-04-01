@@ -38,7 +38,7 @@ Explore and install this tool directly from the Google Workspace Marketplace for
 - Set custom page size and margins  
 - Adds a custom menu: **`Page Sizer by Adam Natad`**  
 - Displays an animated success popup after applying changes  
-- Provides a guide dialog for first-time users  
+- Guide dialog for first-time users  
 
 ---
 
@@ -49,7 +49,7 @@ All scripts are located inside the [`AppScript`](./AppScript) folder:
 - [`Code.gs`](./AppScript/Code.gs)  
 - [`PageSizeDialog.html`](./AppScript/PageSizeDialog.html)  
 - [`SuccessDialog.html`](./AppScript/SuccessDialog.html)  
-- [`HelpDialog.html`](./AppScript/HelpDialog.html)  
+- [`GuideDialog.html`](./AppScript/GuideDialog.html)  
 
 ---
 
