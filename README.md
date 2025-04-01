@@ -38,7 +38,7 @@ Explore and install this tool directly from the Google Workspace Marketplace for
 - Set custom page size and margins  
 - Adds a custom menu: **`Page Sizer by Adam Natad`**  
 - Displays an animated success popup after applying changes  
-- Provides a help dialog for first-time users  
+- Provides a guide dialog for first-time users  
 
 ---
 
