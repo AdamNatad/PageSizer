@@ -78,7 +78,7 @@ All scripts are located inside the [`AppScript`](./AppScript) folder:
        *This scope enables the app to create and manage UI elements within Google Docs, such as the custom menu and dialogs.*
    - Follow the on-screen prompts and click **Allow** to grant these permissions.
 7. **Reload your Google Doc.**
-8. A new menu called **`Adam Natad – Custom Page Sizer`** will appear in your document.
+8. A new menu called **`Page Sizer by Adam Natad`** will appear in your document.
 9. **Select Start** from the menu to launch the page sizing tool.
 10. Enter your custom dimensions and margins, then click **Apply**.
 
