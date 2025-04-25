@@ -20,7 +20,7 @@ Page Sizer by Adam Natad is a simple yet powerful Google Docs™ add-on that all
 
 I created this for myself to streamline my publishing process, and I’m sharing it to help other writers and indie authors who love working in Google Docs™ as much as I do. No complicated setup, just install, customize, and write your story your way.
 
-- Google Chat™ is a trademark of Google LLC
+- Google Docs™ is a trademark of Google LLC
 
 - NatadTech™ is a trademark of NatadTech Solutions OPC
 ---
