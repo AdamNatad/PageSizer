@@ -49,7 +49,8 @@ All scripts are located inside the [`AppScript`](./AppScript) folder:
 - [`Code.gs`](./AppScript/Code.gs)  
 - [`PageSizeDialog.html`](./AppScript/PageSizeDialog.html)  
 - [`SuccessDialog.html`](./AppScript/SuccessDialog.html)  
-- [`GuideDialog.html`](./AppScript/GuideDialog.html)  
+- [`GuideDialog.html`](./AppScript/GuideDialog.html)
+- [`appsscript.json`](./AppScript/appsscript.json)  
 
 ---
 
