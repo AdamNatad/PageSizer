@@ -591,8 +591,9 @@
           const audio = document.getElementById('success-sound');
           if (audio) {
               audio.play().catch((error) => {
-                  // Gracefully handle any playback error (autoplay blocked, network fail, etc.)
-                  console.warn('Ding sound could not be played:', error);
+                audio.currentTime = 0;
+                // Gracefully handle any playback error (autoplay blocked, network fail, etc.)
+                console.warn('Ding sound could not be played:', error);
               });
           }
       }
