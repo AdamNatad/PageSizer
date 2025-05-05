@@ -2,9 +2,21 @@
 <html>
   <head>
     <base target="_top">
+    <!-- Select2 JS via jsDelivr -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Select2 CSS via jsDelivr -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <!-- Font Awesome CDN via jsDelivr -->
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css" rel="stylesheet">
+
     <style>
+      html, body {
+        overflow-x: hidden !important;
+      }
+      html.noscroll,
       body.noscroll {
-        overflow: hidden;
+        overflow: hidden !important;
       }
       .initial-spinner-overlay {
         position: fixed;
@@ -40,8 +52,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        //align-items: flex-end;
-        //padding-bottom: 480px;
         z-index: 9999;
       }
       html, body {
@@ -49,7 +59,6 @@
         padding: 0px 10px;
         font-family: "Google Sans", Arial, sans-serif;
         color: #202124;
-        //animation: popIn 0.3s ease-out;
       }
       @keyframes popIn {
         0% {
@@ -69,7 +78,7 @@
       }
       .header {
         text-align: left;
-        margin-bottom: 16px;
+        margin-bottom: 10px;
         font-size: 14px;
         line-height: 1.6;
       }
@@ -81,17 +90,18 @@
         margin-bottom: 4px;
       }
       .made-with-love {
-        font-size: 12px;
         font-weight: bold;
+        font-size: 12px;
         color: #5f6368;
         margin-top: 2px;
         margin-bottom: 0px;
       }
       .support-label {
-        display: block;
-        font-size: 14px;
-        font-weight: 600;
+        font-weight: bold;
+        font-size: 12px;
+        color: #5f6368;
         margin-bottom: -18px;
+        display: block;
       }
       .nt-button {
         margin-top: 16px;
@@ -116,7 +126,6 @@
       }
       .nt-button-donate {
         margin-top: 0px;
-        margin-bottom: 10px;
         background-color: #d93025;
         border: none;
         color: white;
@@ -135,6 +144,27 @@
       }
       .nt-button-donate:active {
         background-color: #a50e0e;
+      }
+      .nt-button-books {
+        margin-bottom: 10px;
+        background-color: #146eb4;
+        border: none;
+        color: white;
+        padding: 8px 12px;
+        font-size: 13px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        width: 100%;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+      }
+      .nt-button-books:hover {
+        background-color: #125e9c;
+      }
+      .nt-button-books:active {
+        background-color: #0e4a7a;
       }
       h3 {
         font-size: 20px;
@@ -295,19 +325,58 @@
         overflow: hidden;
         text-overflow: ellipsis;
       }
+      /* make the Select2 box fill its container */
+      .select2-container {
+        width: 100% !important;
+      }
+      /* match your blue border */
+      .select2-container--default .select2-selection--single {
+        border: 1px solid #1a73e8;
+        border-radius: 4px;
+        height: 38px;
+        padding: 4px 8px;
+      }
+      /* focus state */
+      .select2-container--default.select2-container--focus
+        .select2-selection--single {
+        border-color: #1669c1;
+        box-shadow: 0 0 0 1px #1669c1;
+      }
+      /* arrow color */
+      .select2-container--default .select2-selection--single .select2-selection__arrow b {
+        border-color: transparent transparent #1a73e8 transparent;
+      }
+      /* dropdown item hover/selected */
+      .select2-container--default .select2-results__option--highlighted,
+      .select2-container--default .select2-results__option[aria-selected=true] {
+        background-color: #1a73e8;
+        color: white;
+      }
     </style>
+
     <script>
       window.addEventListener('DOMContentLoaded', () => {
         const spinner = document.getElementById('initial-spinner');
         const body = document.body;
-    
+
         setTimeout(() => {
           spinner.style.display = 'none';
-          body.style.animation = "popIn 0.3s ease-out";
+          body.style.animation = 'popIn 0.3s ease-out';
         }, 200);
+
+        // Initialize Select2 on the preset and unit dropdowns
+        $('#preset').select2({
+          dropdownParent: $('#mainBody'),
+          allowClear: false,
+        });
+        $('#unit').select2({
+          dropdownParent: $('#mainBody'),
+          allowClear: false
+        });
       });
     </script>
   </head>
+
   <body id="mainBody">
     <div id="initial-spinner" class="initial-spinner-overlay">
       <div class="spinner"></div>
@@ -315,12 +384,22 @@
 
     <div class="header">
       <label class="support-label">Support Adam Natad</label>
-      <button class="nt-button" onclick="window.open('https://www.amazon.com/author/adam-natad','_blank')">
-        📜 Books by Adam Natad
+      <button
+          class="nt-button-books"
+          onclick="window.open('https://www.amazon.com/author/adam-natad','_blank')"
+          style="display:inline-flex; align-items:center; justify-content:center; gap:8px;"
+      >
+          <i class="fab fa-amazon" style="font-size:18px;"></i>
+          Books by Adam Natad
       </button>
       <div class="made-with-love">Made with ♥️</div>
-      <button class="nt-button-donate" onclick="window.open('https://ko-fi.com/adamnatad', '_blank')">
-        ☕ Buy Adam a Coffee
+      <button
+        class="nt-button-donate"
+        onclick="window.open('https://youtube.com/@AdamNatad','_blank')"
+        style="display:inline-flex; align-items:center; justify-content:center; gap:8px;"
+      >
+        <i class="fab fa-youtube" style="font-size:20px; flex-shrink:0;"></i>
+        Subscribe to Adam Natad on YouTube
       </button>
     </div>
 
@@ -328,7 +407,7 @@
       <div class="preset-wrapper">
         <label for="preset">Trim Size - Presets:</label>
         <select id="preset" class="preset-select" onchange="applyPreset()">
-          <option value="">-- Select Preset --</option>
+          
           <option value="custom">Custom Size</option>
           <option value="8.5x11">Google Default</option>
           <option value="5x8">5 x 8 in</option>
@@ -370,8 +449,8 @@
         <input type="number" step="0.01" id="height" required>
       </label>
     </div>
-    
-    <hr>
+
+    <hr />
 
     <div class="grid-2x2">
       <label>Top Margin:
@@ -388,15 +467,28 @@
       </label>
     </div>
 
-    <button type="button" onclick="submitForm()">Apply Page Settings</button>
+    <button type="button" onclick="submitForm()">
+      Apply Page Settings
+    </button>
     <div id="snackbar"></div>
 
     <div id="notebottom">
-      <p><strong>EXPORT OR DOWNLOAD NOTE:</strong> Do not export or download directly to PDF from Google Docs as this may cause incorrect page dimensions. Instead, export your document as a <strong>.docx</strong> file by selecting <em>File → Download → Microsoft Word (.docx)</em>. Open the file in MS Word, verify the page size via <em>Layout → Size → More Paper Sizes…</em>, and then convert it to PDF.</p>
-      <p><strong>WARNING:</strong> setting a custom page size that is not officially supported by Google Docs, the default <i>File → Page Setup</i> may become unusable.
-      To restore access, use this add-on to switch back to a Google-supported paper size.</p>
+      <p>
+        <strong>EXPORT OR DOWNLOAD NOTE:</strong> Do not export or download
+        directly to PDF from Google Docs as this may cause incorrect page
+        dimensions. Instead, export your document as a <strong>.docx</strong>
+        file by selecting <em>File → Download → Microsoft Word (.docx)</em>.
+        Open the file in MS Word, verify the page size via <em>Layout →
+        Size → More Paper Sizes…</em>, and then convert it to PDF.
+      </p>
+      <p>
+        <strong>WARNING:</strong> setting a custom page size that is not
+        officially supported by Google Docs, the default <i>File →
+        Page Setup</i> may become unusable. To restore access, use this add-on
+        to switch back to a Google-supported paper size <strong>(Google Default - Preset)</strong>.
+      </p>
     </div>
-    
+
     <div id="confirm-spinner" class="confirm-spinner-overlay" style="display: none;">
       <div class="spinner"></div>
     </div>
@@ -421,17 +513,17 @@
         "8.5x8.5": { width: 8.5, height: 8.5 },
         "8.5x11": { width: 8.5, height: 11.0 }
       };
-      
+
       function applyPreset() {
-        const preset = document.getElementById('preset').value;
-        const widthInput = document.getElementById('width');
-        const heightInput = document.getElementById('height');
-        const unitSelect = document.getElementById('unit');
+        const preset = document.getElementById("preset").value;
+        const widthInput = document.getElementById("width");
+        const heightInput = document.getElementById("height");
+        const unitSelect = document.getElementById("unit");
 
         if (presets[preset]) {
           widthInput.value = presets[preset].width;
           heightInput.value = presets[preset].height;
-          unitSelect.value = 'in';
+          unitSelect.value = "in";
 
           // Disable inputs
           widthInput.disabled = true;
@@ -446,56 +538,65 @@
       }
 
       function showSnackbar(message) {
-        const bar = document.getElementById('snackbar');
+        const bar = document.getElementById("snackbar");
         bar.textContent = message;
-        bar.style.display = 'block';
-        bar.style.opacity = '1';
+        bar.style.display = "block";
+        bar.style.opacity = "1";
 
         setTimeout(() => {
-          bar.style.opacity = '0';
+          bar.style.opacity = "0";
           setTimeout(() => {
-            bar.style.display = 'none';
+            bar.style.display = "none";
           }, 300);
         }, 3000);
       }
 
       function submitForm() {
-        const width = parseFloat(document.getElementById('width').value);
-        const height = parseFloat(document.getElementById('height').value);
-        const unit = document.getElementById('unit').value;
-        const marginTop = parseFloat(document.getElementById('marginTop').value);
-        const marginBottom = parseFloat(document.getElementById('marginBottom').value);
-        const marginLeft = parseFloat(document.getElementById('marginLeft').value);
-        const marginRight = parseFloat(document.getElementById('marginRight').value);
+        const width = parseFloat(document.getElementById("width").value);
+        const height = parseFloat(document.getElementById("height").value);
+        const unit = document.getElementById("unit").value;
+        const marginTop = parseFloat(document.getElementById("marginTop").value);
+        const marginBottom = parseFloat(document.getElementById("marginBottom").value);
+        const marginLeft = parseFloat(document.getElementById("marginLeft").value);
+        const marginRight = parseFloat(document.getElementById("marginRight").value);
 
         if (
-          isNaN(width) || isNaN(height) || !unit ||
-          isNaN(marginTop) || isNaN(marginBottom) ||
-          isNaN(marginLeft) || isNaN(marginRight)
+          isNaN(width) ||
+          isNaN(height) ||
+          !unit ||
+          isNaN(marginTop) ||
+          isNaN(marginBottom) ||
+          isNaN(marginLeft) ||
+          isNaN(marginRight)
         ) {
-          showSnackbar('⚠️ Please enter valid values in all fields.');
+          showSnackbar("⚠️ Please enter valid values in all fields.");
           return;
         }
 
         const data = {
-          width, height, unit,
-          marginTop, marginBottom,
-          marginLeft, marginRight
+          width,
+          height,
+          unit,
+          marginTop,
+          marginBottom,
+          marginLeft,
+          marginRight
         };
 
-        const mainBody = document.getElementById('mainBody');
-        const confirmSpinner = document.getElementById('confirm-spinner');
-
-        mainBody.style.animation = "fadeOut 0.3s ease-in forwards";
+        // hide scrollbars immediately
+        document.documentElement.classList.add('noscroll');
+        document.body.classList.add('noscroll');
+        
+        const mainBody = document.getElementById("mainBody");
+        const confirmSpinner = document.getElementById("confirm-spinner");
 
         requestAnimationFrame(() => {
-          confirmSpinner.style.display = 'flex';
-          document.body.classList.add('noscroll');
+          confirmSpinner.style.display = "flex";
 
           google.script.run
             .withSuccessHandler(() => {
               setTimeout(() => {
-                confirmSpinner.style.display = 'none';
+                confirmSpinner.style.display = "none";
                 google.script.run.showSuccessDialog();
                 google.script.host.close();
               }, 300);
