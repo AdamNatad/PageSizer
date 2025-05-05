@@ -519,6 +519,10 @@
         <source src="https://cdn.pixabay.com/download/audio/2021/08/04/audio_0625c1539c.mp3?filename=success-1-6297.mp3" type="audio/mpeg">
     </audio>
 
+    <audio id="error-sound" preload="auto">
+        <source src="https://cdn.pixabay.com/download/audio/2024/07/02/audio_3bca7dde98.mp3?filename=error_sound-221445.mp3" type="audio/mpeg">
+    </audio>
+
     <div id="snackbar-error"></div>
     <div id="snackbar-success"></div>
 
@@ -587,14 +591,37 @@
         }
       }
 
-      function playDing() {
+      function playDingSuccess() {
           const audio = document.getElementById('success-sound');
           if (audio) {
-              audio.play().catch((error) => {
-                audio.currentTime = 0;
-                // Gracefully handle any playback error (autoplay blocked, network fail, etc.)
-                console.warn('Ding sound could not be played:', error);
-              });
+              try {
+                  if (!audio.paused || audio.currentTime > 0) {
+                      audio.pause();
+                      audio.currentTime = 0;
+                  }
+                  audio.play().catch((error) => {
+                      console.warn('Ding sound could not be played:', error);
+                  });
+              } catch (error) {
+                  console.warn('Audio error:', error);
+              }
+          }
+      }
+
+      function playDingError() {
+          const audio = document.getElementById('error-sound');
+          if (audio) {
+              try {
+                  if (!audio.paused || audio.currentTime > 0) {
+                      audio.pause();
+                      audio.currentTime = 0;
+                  }
+                  audio.play().catch((error) => {
+                      console.warn('Error sound could not be played:', error);
+                  });
+              } catch (error) {
+                  console.warn('Audio error:', error);
+              }
           }
       }
 
@@ -603,7 +630,9 @@
           bar.innerHTML = message;
           bar.style.display = "block";
           bar.style.opacity = "1";
-      
+
+          playDingError();
+
           setTimeout(() => {
               bar.style.opacity = "0";
               setTimeout(() => {
@@ -618,8 +647,7 @@
           bar.style.display = "flex";
           bar.style.opacity = "1";
 
-          // Play the sound safely
-          playDing();
+          playDingSuccess();
 
           setTimeout(() => {
               bar.style.opacity = "0";
