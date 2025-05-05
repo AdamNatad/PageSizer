@@ -305,7 +305,7 @@
         color: #5f6368;
         cursor: not-allowed;
       }
-      #snackbar {
+      #snackbar-error {
         display: none;
         position: fixed;
         bottom: 32px;
@@ -324,6 +324,50 @@
         max-width: 90vw;
         overflow: hidden;
         text-overflow: ellipsis;
+      }
+      #snackbar-success1 {
+        display: none;
+        position: fixed;
+        bottom: 32px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #188038;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 4px;
+        font-size: 14px;
+        z-index: 9999;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        transition: opacity 0.3s ease;
+        opacity: 0;
+        white-space: nowrap;
+        max-width: 90vw;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      #snackbar-success {
+          display: none;
+          position: fixed;
+          top: 50%;  /* center vertically */
+          left: 50%; /* center horizontally */
+          transform: translate(-50%, -50%);
+          background-color: #188038;
+          color: white;
+          padding: 16px 28px;
+          border-radius: 6px;
+          font-size: 18px;
+          z-index: 9999;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+          transition: opacity 0.3s ease;
+          opacity: 0;
+          white-space: nowrap;
+          max-width: 90vw;
+          overflow: hidden;
+          text-overflow: ellipsis;
+
+          display: flex;
+          align-items: center;
+          gap: 10px;
       }
       /* make the Select2 box fill its container */
       .select2-container {
@@ -470,7 +514,13 @@
     <button type="button" onclick="submitForm()">
       Apply Page Settings
     </button>
-    <div id="snackbar"></div>
+    
+    <audio id="success-sound" preload="auto">
+        <source src="https://cdn.pixabay.com/download/audio/2021/08/04/audio_0625c1539c.mp3?filename=success-1-6297.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="snackbar-error"></div>
+    <div id="snackbar-success"></div>
 
     <div id="notebottom">
       <p>
@@ -537,19 +587,47 @@
         }
       }
 
-      function showSnackbar(message) {
-        const bar = document.getElementById("snackbar");
-        bar.textContent = message;
-        bar.style.display = "block";
-        bar.style.opacity = "1";
-
-        setTimeout(() => {
-          bar.style.opacity = "0";
-          setTimeout(() => {
-            bar.style.display = "none";
-          }, 300);
-        }, 3000);
+      function playDing() {
+          const audio = document.getElementById('success-sound');
+          if (audio) {
+              audio.play().catch((error) => {
+                  // Gracefully handle any playback error (autoplay blocked, network fail, etc.)
+                  console.warn('Ding sound could not be played:', error);
+              });
+          }
       }
+
+      function showSnackbarError(message) {
+          const bar = document.getElementById("snackbar-error");
+          bar.innerHTML = message;
+          bar.style.display = "block";
+          bar.style.opacity = "1";
+      
+          setTimeout(() => {
+              bar.style.opacity = "0";
+              setTimeout(() => {
+                  bar.style.display = "none";
+              }, 300);
+          }, 3000);
+      }
+
+      function showSnackbarSuccess(message) {
+          const bar = document.getElementById("snackbar-success");
+          bar.innerHTML = message;
+          bar.style.display = "flex";
+          bar.style.opacity = "1";
+
+          // Play the sound safely
+          playDing();
+
+          setTimeout(() => {
+              bar.style.opacity = "0";
+              setTimeout(() => {
+                  bar.style.display = "none";
+              }, 300);
+          }, 3000);
+      }
+
 
       function submitForm() {
         const width = parseFloat(document.getElementById("width").value);
@@ -569,7 +647,7 @@
           isNaN(marginLeft) ||
           isNaN(marginRight)
         ) {
-          showSnackbar("⚠️ Please enter valid values in all fields.");
+          showSnackbarError('<i class="fas fa-exclamation-triangle" style="margin-right:6px;"></i> Please enter valid values in all fields.');
           return;
         }
 
@@ -597,8 +675,13 @@
             .withSuccessHandler(() => {
               setTimeout(() => {
                 confirmSpinner.style.display = "none";
-                google.script.run.showSuccessDialog();
-                google.script.host.close();
+                showSnackbarSuccess('<i class="fas fa-check-circle" style="font-size:20px;"></i> Page size applied successfully.');
+                //Re-enable Scroll
+                document.documentElement.classList.remove('noscroll');
+                document.body.classList.remove('noscroll');
+
+                //google.script.run.showSuccessDialog();
+                //google.script.host.close();
               }, 300);
             })
             .setCustomPageSizeAndMargins(data);
