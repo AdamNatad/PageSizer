@@ -98,40 +98,40 @@ Below are screenshots demonstrating various aspects of the tool. Each image is s
 
 
 ### Preview 2: Page Size Dialog - Start Dialog  
-<a href="./Previews/PageSizer-Preview2.jpg" target="_blank">
-  <img src="./Previews/PageSizer-Preview2.jpg" alt="Page Size Dialog - Start Dialog" width="50%" />
+<a href="./Previews/PageSizer-Preview2.png" target="_blank">
+  <img src="./Previews/PageSizer-Preview2.png" alt="Page Size Dialog - Start Dialog" width="50%" />
 </a>
 
 *The main view of the page size dialog, where you can enter your custom dimensions and margins.*
 
 
 ### Preview 3: Select Preset Menu  
-<a href="./Previews/PageSizer-Preview3.jpg" target="_blank">
-  <img src="./Previews/PageSizer-Preview3.jpg" alt="Select Preset Menu" width="50%" />
+<a href="./Previews/PageSizer-Preview3.png" target="_blank">
+  <img src="./Previews/PageSizer-Preview3.png" alt="Select Preset Menu" width="50%" />
 </a>
 
 *An option to select a preset configuration for quick page setup.*
 
 
 ### Preview 4: Page Size Dialog - Start Dialog - Apply Page Settings  
-<a href="./Previews/PageSizer-Preview4.jpg" target="_blank">
-  <img src="./Previews/PageSizer-Preview4.jpg" alt="Apply Page Settings" width="50%" />
+<a href="./Previews/PageSizer-Preview4.png" target="_blank">
+  <img src="./Previews/PageSizer-Preview4.png" alt="Apply Page Settings" width="50%" />
 </a>
 
 *The bottom section of the page size dialog displaying the Apply Page Settings button.*
 
 
 ### Preview 5: Success Popup  
-<a href="./Previews/PageSizer-Preview5.jpg" target="_blank">
-  <img src="./Previews/PageSizer-Preview5.jpg" alt="Success Popup" width="50%" />
+<a href="./Previews/PageSizer-Preview5.png" target="_blank">
+  <img src="./Previews/PageSizer-Preview5.png" alt="Success Popup" width="50%" />
 </a>
 
 *An animated popup confirms your changes after applying the new page size.*
 
 
 ### Preview 6: Guide Dialog  
-<a href="./Previews/PageSizer-Preview6.jpg" target="_blank">
-  <img src="./Previews/PageSizer-Preview6.jpg" alt="Guide Dialog" width="50%" />
+<a href="./Previews/PageSizer-Preview6.png" target="_blank">
+  <img src="./Previews/PageSizer-Preview6.png" alt="Guide Dialog" width="50%" />
 </a>
 
 *A guide dialog provides guidance for first-time users on how to use the tool.*
