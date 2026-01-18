@@ -1,5 +1,8 @@
 # Exclude the Previews folder from export archives
-Previews/ export-ignore
+#
+# remove # to enable
+# currently now its disabled
+# Previews/ export-ignore
 
 # Exclude Git-specific configuration files from export archives
 .gitignore export-ignore
