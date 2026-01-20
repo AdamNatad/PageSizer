@@ -143,8 +143,8 @@ All videos are hosted on [YouTube - Adam Natad](https://youtube.com/@AdamNatad)
 
 ## 🧾 Notes
 
-- Google Docs™ is a trademark of Google LLC
-- NatadTech™ is a trademark of NatadTech Solutions OPC
+- Google Docs® is a registered trademark of Google LLC
+- NatadTech® is a registered trademark of NatadTech Solutions OPC
 
 ---
 
