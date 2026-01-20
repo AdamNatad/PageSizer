@@ -15,7 +15,7 @@ Page Sizer by Adam Natad is a lightweight Google Docs™ add-on (Apps Script) th
 Install the add-on from the Google Workspace Marketplace:
 
 👉 **Install Page Sizer (Marketplace):**  
-https://workspace.google.com/marketplace/app/adam_natad_custom_page_sizer/207001493947
+https://workspace.google.com/marketplace/app/page_sizer_by_adam_natad/207001493947
 
 Alternative listing link:  
 https://gsuite.google.com/marketplace/app/foo/207001493947
@@ -124,17 +124,20 @@ All images are stored in the [`Previews`](./Previews) folder.
 
 ## 🎬 Watch It in Action
 
-### Quick Video (Apps Script)
+All videos are hosted on [YouTube - Adam Natad](https://youtube.com/@AdamNatad)
+
+### ▶️ [Quick Video (Apps Script)](https://youtu.be/VHZyLZIrF1w)
 [![Quick Video - From App Script](https://img.youtube.com/vi/VHZyLZIrF1w/hqdefault.jpg)](https://youtu.be/VHZyLZIrF1w)  
-▶️ **Click here to watch the YouTube video:** [Quick Video - From App Script](https://youtu.be/VHZyLZIrF1w)
 
-### Quick Video (Add-On Marketplace)
+---
+
+### ▶️ [Quick Video (Add-On Marketplace)](https://youtu.be/RWupNYfRYJ0)
 [![Quick Video - From Add-On Marketplace](https://img.youtube.com/vi/RWupNYfRYJ0/hqdefault.jpg)](https://youtu.be/RWupNYfRYJ0)  
-▶️ **Click here to watch the YouTube video:** [Quick Video - From Add-On Marketplace](https://youtu.be/RWupNYfRYJ0)
 
-### Detailed Video (Add-On Marketplace)
+---
+
+### ▶️ [Detailed Video (Add-On Marketplace)](https://youtu.be/2tqSTqNpfjs)
 [![Detailed Video - From Add-On Marketplace](https://img.youtube.com/vi/2tqSTqNpfjs/hqdefault.jpg)](https://youtu.be/2tqSTqNpfjs)  
-▶️ **Click here to watch the YouTube video:** [Detailed Video - From Add-On Marketplace](https://youtu.be/2tqSTqNpfjs)
 
 ---
 
