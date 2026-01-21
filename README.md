@@ -2,6 +2,24 @@
 
 <img src="./Previews/AppBanner.png" alt="Page Sizer Banner" width="60%" />
 
+## 🧑‍💻 **Developer:** [Adam Natad](https://share.google/XM0zgtbTb4bjFJXGE)
+
+<br>
+
+## 🌐 [Google Workspace Marketplace - Easy Install](https://gsuite.google.com/marketplace/app/foo/207001493947)
+```
+https://gsuite.google.com/marketplace/app/foo/207001493947
+```
+## 📦 [GitHub Repository - Full Source Code](https://github.com/AdamNatad/PageSizer/)
+```
+https://github.com/AdamNatad/PageSizer/
+```
+## 🗃️ [GitHub Release](https://github.com/AdamNatad/PageSizer/releases)
+```
+https://github.com/AdamNatad/PageSizer/releases
+```
+---
+
 **Custom Page Sizer for Google Docs™**
 
 Freely set custom page sizes and margins in Google Docs™. Perfect for Amazon KDP Paperback and Hardcover trim sizes. Built for authors who love writing in Google Docs™. Made with ♥️
@@ -150,12 +168,16 @@ All videos are hosted on [YouTube - Adam Natad](https://youtube.com/@AdamNatad)
 
 ## 📬 Contact
 
-**Made with love by Adam Natad**  
-🌐 https://natadtech.com  
-📧 adam@natadtech.com
+► Facebook: [@AdamNatadFB](https://facebook.com/AdamNatadFB)  
+► Instagram: [@AdamNatad](https://instagram.com/adamnatad/)  
+
+🌐 Website: https://natadtech.com  
+📧 Email: adam@natadtech.com
 
 ---
 
 ## 📄 License
 
 This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
+---
+🧑‍💻 **Developer:** [Adam Natad](https://share.google/XM0zgtbTb4bjFJXGE)
